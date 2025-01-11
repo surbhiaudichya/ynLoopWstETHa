@@ -4,3 +4,6 @@
 [submodule "lib/yieldnest-vault"]
 	path = lib/yieldnest-vault
 	url = https://github.com/yieldnest/yieldnest-vault
+[submodule "lib/aave-v3-periphery"]
+	path = lib/aave-v3-periphery
+	url = https://github.com/aave/aave-v3-periphery

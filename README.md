@@ -1,66 +1,24 @@
-## Foundry
+# AaveStrategy Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Overview
 
-Foundry consists of:
+The `AaveStrategy` contract enables users to deposit WETH into Aave, loop it to borrow wstETH, and withdraw collateral while managing debt to maintain a healthy loan position. It integrates with the **YieldNest Vault** for efficient asset management.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Key Features
+- Deposit WETH, borrow wstETH, and earn rewards by leveraging Aave’s mechanisms.
+- Withdraw collateral while repaying wstETH debt to ensure a healthy loan position.
+- Supports swapping between WETH and wstETH via Uniswap.
 
-## Documentation
+## Vault Integration
+The contract extends YieldNest's `Vault` to manage user deposits, shares, and assets. It tracks balances and ensures seamless asset management for deposits and withdrawals.
 
-https://book.getfoundry.sh/
+## Assumptions
+- Looping works only in incentivized pools with lower borrowing rates than lending rates.
+- Unwinding assumes lending rates are higher than borrowing rates.
 
-## Usage
+## Events
+- **Deposit**, **Borrow**, **Swap**, **Withdraw**, **Unwind**
 
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Installation & Usage
+1. Install dependencies and deploy the contract with Aave and Uniswap addresses.
+2. Interact with the contract for deposit, withdrawal, and looping strategy management.

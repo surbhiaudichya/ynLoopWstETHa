@@ -1,0 +1,3 @@
+lib/forge-std/src=./lib/yieldnest-vault/lib/forge-std/src
+forge-std=./lib/surl/lib/forge-std/src
+@aave-v3-periphery/contracts=./lib/aave-v3-periphery/contracts
